@@ -1,12 +1,19 @@
 package com.github.watanabear.playgoround2_mastar.view;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,6 +30,8 @@ public class SwipeButton extends RelativeLayout {
     private ImageView slidingButton;
     private Drawable disableDrawable;
     private Drawable enableDrawable;
+    private float initialX;
+    private boolean active;
 
     public SwipeButton(Context context) {
         super(context);
@@ -95,6 +104,125 @@ public class SwipeButton extends RelativeLayout {
     }
 
     private OnTouchListener getButtonTouchListener() {
-        return null;
+        return (v, event) -> {
+            switch (event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    return true;
+                case MotionEvent.ACTION_MOVE:
+                    //ゼロでない場合にボタンの最初の位置を確認する
+                    if (initialX == 0) {
+                        initialX = slidingButton.getX();
+                    }
+
+                    //タッチの位置にボタンの中心を設定し、スワイプが増加するにつれてテキストのアルファを減らす。
+                    if (event.getX() > initialX + slidingButton.getWidth() / 2 &&
+                            event.getX() + slidingButton.getWidth() / 2 < getWidth()) {
+                        slidingButton.setX(event.getX() - slidingButton.getWidth() / 2);
+                        centerText.setAlpha(1 - 1.3f * (slidingButton.getX() + slidingButton.getWidth()) / getWidth());
+                    }
+
+                    //ユーザが限界の外側をスワイプするときに可動部品の位置をROOTの限界に設定する
+                    if (event.getX() + slidingButton.getWidth() / 2 > getWidth() &&
+                            slidingButton.getX() + slidingButton.getWidth() / 2 < getWidth()) {
+                        slidingButton.setX(getWidth() - slidingButton.getWidth());
+                    }
+                    if (event.getX() < slidingButton.getWidth() / 2 &&
+                            slidingButton.getX() > 0) {
+                        slidingButton.setX(0);
+                    }
+                    return true;
+                case MotionEvent.ACTION_UP:
+                    if (active) {
+                        collapseButton();
+                    } else {
+//                        initialButtonWidth = slidingButton.getWidth();
+                        if (slidingButton.getX() + slidingButton.getWidth() > getWidth() * 0.85) {
+                            expandButton();
+                        } else {
+                            moveButtonBack();
+                        }
+                    }
+                    return true;
+            }
+            return false;
+        };
+    }
+
+    private void collapseButton() {
+        final ValueAnimator widthAnimator = ValueAnimator.ofInt(
+                slidingButton.getWidth(), slidingButton.getHeight());
+
+        widthAnimator.addUpdateListener(animation -> {
+            ViewGroup.LayoutParams params = slidingButton.getLayoutParams();
+            params.width = (Integer) widthAnimator.getAnimatedValue();
+            slidingButton.setLayoutParams(params);
+        });
+
+        widthAnimator.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                active = false;
+                slidingButton.setImageDrawable(disableDrawable);
+            }
+        });
+
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(centerText, "alpha", 1);
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(objectAnimator, widthAnimator);
+        animatorSet.start();
+    }
+
+    private void expandButton() {
+        //コンポーネントの左端をアニメーション
+        final ValueAnimator positionAnimator =
+                ValueAnimator.ofFloat(slidingButton.getX(), 0);
+        positionAnimator.addUpdateListener(animation -> {
+            float x = (Float) positionAnimator.getAnimatedValue();
+            slidingButton.setX(x);
+        });
+        //コンポーネントの全空間を拡大して占有
+        final ValueAnimator widthAnimator = ValueAnimator.ofInt(
+                slidingButton.getWidth(),
+                getWidth());
+
+        widthAnimator.addUpdateListener(animation -> {
+            ViewGroup.LayoutParams params = slidingButton.getLayoutParams();
+            params.width = (Integer) widthAnimator.getAnimatedValue();
+            slidingButton.setLayoutParams(params);
+        });
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+
+                active = true;
+                slidingButton.setImageDrawable(enableDrawable);
+            }
+        });
+
+        animatorSet.playTogether(positionAnimator, widthAnimator);
+        animatorSet.start();
+    }
+
+    private void moveButtonBack() {
+        final ValueAnimator positionAnimator =
+                ValueAnimator.ofFloat(slidingButton.getX(), 0);
+        positionAnimator.setInterpolator(new AccelerateInterpolator());
+        positionAnimator.addUpdateListener(animation -> {
+            float x = (Float) positionAnimator.getAnimatedValue();
+            slidingButton.setX(x);
+        });
+
+        ObjectAnimator objectAnimator = ObjectAnimator.ofFloat(centerText, "alpha", 1);
+
+        positionAnimator.setDuration(200);//ms
+
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(objectAnimator, positionAnimator);
+        animatorSet.start();
     }
 }
