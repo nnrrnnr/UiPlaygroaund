@@ -71,7 +71,7 @@ public class SwipeButton extends RelativeLayout {
         centerText.setText("SWIPE"); //add any text
         centerText.setTextColor(Color.WHITE);
         centerText.setPadding(35,35,35,35);
-        background.addView(centerText);
+        background.addView(centerText, layoutParams);
 
         // add the moving icon
         this.slidingButton = new ImageView(context);
@@ -81,7 +81,6 @@ public class SwipeButton extends RelativeLayout {
                 R.mipmap.ic_launcher);
 
         slidingButton.setImageDrawable(disableDrawable);
-        slidingButton.setPadding(40,40,40,40);
 
         LayoutParams layoutParamsButton = new LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,

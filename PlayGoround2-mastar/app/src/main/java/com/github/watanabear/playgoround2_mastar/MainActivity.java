@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private enum ActItem {
         MAIN_ACTIVITY("MainActivity", MainActivity.class, R.mipmap.ic_launcher_round),
-        MAIN_ACTIVITY2("MainActivity2", MainActivity.class, R.mipmap.ic_launcher),
+        SWIPE_BUTTON("Swipe Button", Main2Activity.class, R.mipmap.ic_launcher),
         ;
 
         final String label;
