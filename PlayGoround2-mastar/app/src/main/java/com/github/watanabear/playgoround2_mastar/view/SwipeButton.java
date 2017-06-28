@@ -32,6 +32,11 @@ public class SwipeButton extends RelativeLayout {
     private Drawable enableDrawable;
     private float initialX;
     private boolean active;
+    private OnStateChangeListener onStateChangeListener;
+
+    public interface OnStateChangeListener {
+        void onStateChange(boolean active);
+    }
 
     public SwipeButton(Context context) {
         super(context);
@@ -52,6 +57,10 @@ public class SwipeButton extends RelativeLayout {
     public SwipeButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context,attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr, defStyleRes);
+    }
+
+    public void setOnStateChangeListener(OnStateChangeListener onStateChangeListener) {
+        this.onStateChangeListener = onStateChangeListener;
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
@@ -136,7 +145,6 @@ public class SwipeButton extends RelativeLayout {
                     if (active) {
                         collapseButton();
                     } else {
-//                        initialButtonWidth = slidingButton.getWidth();
                         if (slidingButton.getX() + slidingButton.getWidth() > getWidth() * 0.85) {
                             expandButton();
                         } else {
@@ -165,6 +173,9 @@ public class SwipeButton extends RelativeLayout {
                 super.onAnimationEnd(animation);
                 active = false;
                 slidingButton.setImageDrawable(disableDrawable);
+                if (onStateChangeListener != null) {
+                    onStateChangeListener.onStateChange(active);
+                }
             }
         });
 
@@ -202,6 +213,9 @@ public class SwipeButton extends RelativeLayout {
 
                 active = true;
                 slidingButton.setImageDrawable(enableDrawable);
+                if (onStateChangeListener != null) {
+                    onStateChangeListener.onStateChange(active);
+                }
             }
         });
 
