@@ -85,10 +85,11 @@ public class SwipeButton extends RelativeLayout {
         // add the moving icon
         this.slidingButton = new ImageView(context);
         this.disableDrawable = ContextCompat.getDrawable(getContext(),
-                R.mipmap.ic_launcher_round);
+                R.drawable.ic_lock_open_black_36dp);
         this.enableDrawable = ContextCompat.getDrawable(getContext(),
-                R.mipmap.ic_launcher);
-
+                R.drawable.ic_lock_outline_black_36dp);
+        slidingButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.shape_button));
+        slidingButton.setPadding(30,30,30,30);
         slidingButton.setImageDrawable(disableDrawable);
 
         LayoutParams layoutParamsButton = new LayoutParams(

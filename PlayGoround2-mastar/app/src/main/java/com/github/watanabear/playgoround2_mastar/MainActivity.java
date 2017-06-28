@@ -34,8 +34,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private enum ActItem {
-        MAIN_ACTIVITY("MainActivity", MainActivity.class, R.mipmap.ic_launcher_round),
-        SWIPE_BUTTON("Swipe Button", Main2Activity.class, R.mipmap.ic_launcher),
+        MAIN_ACTIVITY("MainActivity", MainActivity.class, R.mipmap.mainactivity),
+        SWIPE_BUTTON("Swipe Button", Main2Activity.class, R.mipmap.swipebutton),
         ;
 
         final String label;
@@ -80,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
             ListItemActivityClassBinding b = holder.binding;
             ActItem a = items.get(position);
             b.label.setText(a.label);
-            b.screenShot.setImageResource(a.imgRes);
+            if (a.imgRes != 0) {
+                b.screenShot.setGifResource(a.imgRes);
+            }
 
             b.getRoot().setOnClickListener(v -> {
                 if (listener == null) return;
