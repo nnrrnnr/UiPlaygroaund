@@ -240,4 +240,13 @@ public class SwipeButton extends RelativeLayout {
         animatorSet.playTogether(objectAnimator, positionAnimator);
         animatorSet.start();
     }
+
+    public void setActive(boolean active) {
+        this.active = active;
+        if (active) {
+            collapseButton();
+        } else {
+            expandButton();
+        }
+    }
 }

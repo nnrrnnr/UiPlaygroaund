@@ -19,4 +19,6 @@ public class Main2Activity extends AppCompatActivity {
             Toast.makeText(this, active ? "close" : "open", Toast.LENGTH_SHORT).show();
         });
     }
+
+
 }
