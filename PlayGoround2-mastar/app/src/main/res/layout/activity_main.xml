@@ -5,8 +5,6 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        android:clipToPadding="false"
         tools:context="com.github.watanabear.playgoround2_mastar.MainActivity">
 
         <android.support.v7.widget.RecyclerView
