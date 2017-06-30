@@ -34,16 +34,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private enum ActItem {
-        MAIN_ACTIVITY("MainActivity", MainActivity.class, R.mipmap.mainactivity),
-        SWIPE_BUTTON("Swipe Button", Main2Activity.class, R.mipmap.swipebutton),
-        ;
+        MAIN_ACTIVITY(MainActivity.class, "MainActivity", R.string.description_0, R.mipmap.mainactivity),
+        SWIPE_BUTTON(Main2Activity.class, "Swipe Button", R.string.description_1, R.mipmap.swipebutton),
+        TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition);
 
         final String label;
+        final int description;
         final int imgRes;
         final Class<? extends Activity> activityClass;
 
-        ActItem(String label, Class<? extends Activity> activityClass, int imgRes) {
+        ActItem(Class<? extends Activity> activityClass, String label, int description, int imgRes) {
             this.label = label;
+            this.description = description;
             this.activityClass = activityClass;
             this.imgRes = imgRes;
         }
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             if (a.imgRes != 0) {
                 b.screenShot.setGifResource(a.imgRes);
             }
-
+            b.description.setText(a.description);
             b.getRoot().setOnClickListener(v -> {
                 if (listener == null) return;
 
