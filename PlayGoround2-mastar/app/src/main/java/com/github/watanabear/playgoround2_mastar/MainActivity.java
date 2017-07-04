@@ -36,7 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private enum ActItem {
         MAIN_ACTIVITY(MainActivity.class, "MainActivity", R.string.description_0, R.mipmap.mainactivity),
         SWIPE_BUTTON(Main2Activity.class, "Swipe Button", R.string.description_1, R.mipmap.swipebutton),
-        TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition);
+        TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition),
+        REVEAL_WITH_CIRCULAR_REVELATION(Main4Activity.class, "reveal an activity with circular revelation", R.string.description_3, R.mipmap.reveal);
 
         final String label;
         final int description;
