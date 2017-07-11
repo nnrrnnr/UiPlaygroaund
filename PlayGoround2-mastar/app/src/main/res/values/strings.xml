@@ -6,4 +6,13 @@
     <string name="description_2">Thanks to the efforts of Yuichi Araki in the Google Developer Relations team, we’ve finally finished that back-port and the capabilities of KitKat transitions are available all the way back to the Ice Cream Sandwich release. That means that you are now able to change your UI’s layout and use the transitions system to animate those changes automatically on devices back to API level 14.</string>
     <string name="description_3">Micro interactions are so cool! Android makes possible to create many nice animations with little effort, so it is a good place to create very interactive software (and have fun while you do so!).</string>
 
+
+    <string name="group_1">Cupcake</string>
+    <string name="group_2">Donut</string>
+    <string name="group_3">Eclair</string>
+    <string name="group_4">Froyo</string>
+    <string name="group_5">Gingerbread</string>
+    <string name="group_6">Honeycomb</string>
+    <string name="group_7">Ice Cream Sandwich</string>
+    <string name="group_8">Jelly Bean</string>
 </resources>

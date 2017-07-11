@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.github.watanabear.playgoround2_mastar.databinding.ActivityMainBinding;
 import com.github.watanabear.playgoround2_mastar.databinding.ListItemActivityClassBinding;
+import com.github.watanabear.playgoround2_mastar.epoxy.Main5Activity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -37,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         MAIN_ACTIVITY(MainActivity.class, "MainActivity", R.string.description_0, R.mipmap.mainactivity),
         SWIPE_BUTTON(Main2Activity.class, "Swipe Button", R.string.description_1, R.mipmap.swipebutton),
         TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition),
-        REVEAL_WITH_CIRCULAR_REVELATION(Main4Activity.class, "reveal an activity with circular revelation", R.string.description_3, R.mipmap.reveal);
+        REVEAL_WITH_CIRCULAR_REVELATION(Main4Activity.class, "reveal an activity with circular revelation", R.string.description_3, R.mipmap.reveal),
+        EPOXY(Main5Activity.class, "epoxy",R.string.description_3, R.mipmap.reveal);
 
         final String label;
         final int description;
