@@ -21,7 +21,8 @@
         <activity
             android:name=".Sub4Activity"
             android:theme="@style/AppTheme.Transparent" />
-        <activity android:name=".epoxy.Main5Activity"></activity>
+        <activity android:name=".epoxy.Main5Activity" />
+        <activity android:name=".Main6Activity"></activity>
     </application>
 
 </manifest>

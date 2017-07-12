@@ -39,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         SWIPE_BUTTON(Main2Activity.class, "Swipe Button", R.string.description_1, R.mipmap.swipebutton),
         TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition),
         REVEAL_WITH_CIRCULAR_REVELATION(Main4Activity.class, "reveal an activity with circular revelation", R.string.description_3, R.mipmap.reveal),
-        EPOXY(Main5Activity.class, "epoxy",R.string.description_3, R.mipmap.reveal);
+        EPOXY(Main5Activity.class, "epoxy",R.string.description_3, R.mipmap.reveal),
+        MORPH(Main6Activity.class, "morph", R.string.desc_morph, R.mipmap.reveal)
+        ;
 
         final String label;
         final int description;

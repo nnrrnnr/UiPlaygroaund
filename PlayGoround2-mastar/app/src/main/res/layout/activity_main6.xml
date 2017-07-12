@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:fitsSystemWindows="true"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="#aaa"
+        tools:context=".Main6Activity">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/form_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="20dp"
+            android:padding="0dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:id="@+id/login_views"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_inside_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:text="LOGIN"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="your name"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="your age"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="phone number"
+                    android:visibility="gone" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/background_dark"
+                    android:text="Ok!"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/form_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="20dp"
+            android:padding="0dp"
+            app:cardCornerRadius="6dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:id="@+id/register_views"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/button_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@android:color/transparent"
+                    android:text="REGISTER"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/name_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="your name"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/age_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="your age"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/phone_register"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:hint="phone number"
+                    android:visibility="gone" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@android:color/background_dark"
+                    android:text="Ok!"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+</layout>
