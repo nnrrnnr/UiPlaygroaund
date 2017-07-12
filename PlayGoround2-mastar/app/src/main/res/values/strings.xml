@@ -5,6 +5,7 @@
     <string name="description_1">Design not about making something beautiful, it is about making something great. You can do a great app by many ways, but one of my favorites is to make it the simplest and intuitive as possible, yet being original. </string>
     <string name="description_2">Thanks to the efforts of Yuichi Araki in the Google Developer Relations team, we’ve finally finished that back-port and the capabilities of KitKat transitions are available all the way back to the Ice Cream Sandwich release. That means that you are now able to change your UI’s layout and use the transitions system to animate those changes automatically on devices back to API level 14.</string>
     <string name="description_3">Micro interactions are so cool! Android makes possible to create many nice animations with little effort, so it is a good place to create very interactive software (and have fun while you do so!).</string>
+    <string name="desc_morph">Interactions between views take some time to get good, but those are the things that make a user fall in love with your product. </string>
 
     <string name="group_1">Cupcake</string>
     <string name="group_2">Donut</string>
