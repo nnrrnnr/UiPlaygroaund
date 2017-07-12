@@ -33,11 +33,11 @@
                     android:layout_weight="1"
                     android:text="activity class name" />
 
-                <com.cunoraz.gifview.library.GifView
-                    android:id="@+id/screenShot"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp" />
+                <!--<com.cunoraz.gifview.library.GifView-->
+                    <!--android:id="@+id/screenShot"-->
+                    <!--android:layout_width="100dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="8dp" />-->
 
             </LinearLayout>
         </LinearLayout>

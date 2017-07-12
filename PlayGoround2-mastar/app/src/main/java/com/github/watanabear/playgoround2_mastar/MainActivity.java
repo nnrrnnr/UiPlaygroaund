@@ -40,19 +40,20 @@ public class MainActivity extends AppCompatActivity {
         TRANSITION(Main3Activity.class, "Transition", R.string.description_2, R.mipmap.transition),
         REVEAL_WITH_CIRCULAR_REVELATION(Main4Activity.class, "reveal an activity with circular revelation", R.string.description_3, R.mipmap.reveal),
         EPOXY(Main5Activity.class, "epoxy",R.string.description_3, R.mipmap.reveal),
-        MORPH(Main6Activity.class, "morph", R.string.desc_morph, R.mipmap.reveal)
+        MORPH(Main6Activity.class, "morph", R.string.desc_morph, R.mipmap.reveal),
+        SCROLLING_IN_SCROLLING(Main7Activity.class, "scrolling within scrolling", R.string.desc_scrolling_within_scrolling, R.mipmap.reveal)
         ;
 
         final String label;
         final int description;
-        final int imgRes;
+//        final int imgRes;
         final Class<? extends Activity> activityClass;
 
         ActItem(Class<? extends Activity> activityClass, String label, int description, int imgRes) {
             this.label = label;
             this.description = description;
             this.activityClass = activityClass;
-            this.imgRes = imgRes;
+//            this.imgRes = imgRes;
         }
 
         @Override
@@ -87,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
             ListItemActivityClassBinding b = holder.binding;
             ActItem a = items.get(position);
             b.label.setText(a.label);
-            if (a.imgRes != 0) {
-                b.screenShot.setGifResource(a.imgRes);
-            }
+//            if (a.imgRes != 0) {
+//                b.screenShot.setGifResource(a.imgRes);
+//            }
             b.description.setText(a.description);
             b.getRoot().setOnClickListener(v -> {
                 if (listener == null) return;

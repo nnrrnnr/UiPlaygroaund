@@ -6,7 +6,9 @@
     <string name="description_2">Thanks to the efforts of Yuichi Araki in the Google Developer Relations team, we’ve finally finished that back-port and the capabilities of KitKat transitions are available all the way back to the Ice Cream Sandwich release. That means that you are now able to change your UI’s layout and use the transitions system to animate those changes automatically on devices back to API level 14.</string>
     <string name="description_3">Micro interactions are so cool! Android makes possible to create many nice animations with little effort, so it is a good place to create very interactive software (and have fun while you do so!).</string>
     <string name="desc_morph">Interactions between views take some time to get good, but those are the things that make a user fall in love with your product. </string>
-
+    <string name="desc_scrolling_within_scrolling">A great example of using scrolling within scrolling is when handling messaging without the window expanding to fit the size of the text entered in addition to scrolling up/down to view previous messages on the page. This strategy results in a clearly defined and limited space for the user to input text.</string>
+    
+    
     <string name="group_1">Cupcake</string>
     <string name="group_2">Donut</string>
     <string name="group_3">Eclair</string>
